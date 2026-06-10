@@ -1,0 +1,20 @@
+{
+  "name": "cloud-bus-pass-system",
+  "version": "1.0.0",
+  "description": "Cloud-ready online bus pass booking system with server-side pricing, signed digital passes, and autoscaling deployment manifests.",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "keywords": [
+    "bus-pass",
+    "ticket-booking",
+    "cloud",
+    "autoscaling"
+  ],
+  "license": "MIT"
+}

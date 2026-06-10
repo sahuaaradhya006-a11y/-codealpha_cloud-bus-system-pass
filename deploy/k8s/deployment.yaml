@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloud-bus-pass
+  labels:
+    app: cloud-bus-pass
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cloud-bus-pass
+  template:
+    metadata:
+      labels:
+        app: cloud-bus-pass
+    spec:
+      containers:
+        - name: app
+          image: ghcr.io/example/cloud-bus-pass:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
+          env:
+            - name: PORT
+              value: "3000"
+            - name: DB_PATH
+              value: "/data/bus-pass.sqlite"
+            - name: SIGNING_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: cloud-bus-pass-secrets
+                  key: signing-secret
+            - name: ADMIN_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: cloud-bus-pass-secrets
+                  key: admin-key
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          volumeMounts:
+            - name: data
+              mountPath: /data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: cloud-bus-pass-data

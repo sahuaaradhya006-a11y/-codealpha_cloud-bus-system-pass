@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cloud Bus Pass Booking</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="booking-panel" aria-labelledby="page-title">
+        <div class="title-row">
+          <div>
+            <p class="eyebrow">Cloud Bus Pass</p>
+            <h1 id="page-title">Book a protected digital pass</h1>
+          </div>
+          <span class="status-pill" id="service-status">Checking</span>
+        </div>
+
+        <form id="booking-form" class="grid">
+          <label>
+            Full name
+            <input name="name" autocomplete="name" required placeholder="Aarav Mehta">
+          </label>
+          <label>
+            Email
+            <input name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+          </label>
+          <label>
+            Phone
+            <input name="phone" autocomplete="tel" required placeholder="+1 555 0100">
+          </label>
+          <label>
+            Route
+            <select name="routeId" id="route-select" required></select>
+          </label>
+          <label>
+            Pass
+            <select name="passType" id="pass-select" required></select>
+          </label>
+          <label>
+            Rider
+            <select name="riderType" id="rider-select" required></select>
+          </label>
+          <div class="actions">
+            <button type="button" id="quote-button">Get fare</button>
+            <button type="submit">Book pass</button>
+          </div>
+        </form>
+      </section>
+
+      <aside class="pass-panel" aria-live="polite">
+        <h2>Booking result</h2>
+        <div id="result" class="empty-state">
+          Select a route and request a fare or confirm a booking.
+        </div>
+      </aside>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
