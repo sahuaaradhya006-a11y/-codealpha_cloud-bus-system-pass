@@ -1,7 +1,6 @@
 # Cloud-Based Bus Pass System
 
-This project is a complete online bus pass booking system designed for cloud deployment. It includes a web UI, REST API, persistent storage, server-side pricing, signed digital pass tokens, validation/revocation endpoints, tests, Docker packaging, and Kubernetes autoscaling manifests.
-
+This project is a complete cloud-based online bus pass booking system designed for scalable deployment. It includes a web UI, REST API, and persistent storage with server-side pricing logic. The system supports secure digital pass generation using signed tokens, along with validation and revocation endpoints. It is containerized using Docker and includes Kubernetes manifests for deployment and autoscaling. The project also includes testing for reliability and performance.
 ## Covered Requirements
 
 - Online booking: users can request a fare and book a digital bus pass from the browser.
@@ -95,3 +94,11 @@ The tests verify:
 - idempotent booking retries;
 - signed-token validation;
 - revoked pass rejection.
+  
+  ## Project Preview
+  ## Image 1
+    ![Cloud_Bus_Pass_System](assets/cloud_bus_system_pass.png)
+
+  ## Image 2
+    ![Cloud_Bus_Pass_System](assets/cloud_bus_system_pass_2.png)
+  
