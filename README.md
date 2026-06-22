@@ -100,5 +100,5 @@ The tests verify:
     ![Cloud_Bus_Pass_System](assets/cloud_bus_system_pass.png)
 
   ## Image 2
-    ![Cloud_Bus_Pass_System](assets/cloud_bus_system_pass_2.png)
+    ![Cloud_Bus_Pass_System](assets/clloud_bus_system_pass_2.png)
   
